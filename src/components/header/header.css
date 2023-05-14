@@ -1,0 +1,20 @@
+.logo:hover {
+  cursor: pointer;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hr {
+  border: none;
+  height: 0.8px;
+  color: grey;
+  background-color: grey;
+}
+
+.ham:hover {
+  cursor: pointer;
+}

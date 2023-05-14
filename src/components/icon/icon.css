@@ -1,0 +1,14 @@
+.icon_list {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.icon_list img:hover {
+  -webkit-transform: scale(1.2);
+}
+
+.icon_hr {
+  color: green;
+}
