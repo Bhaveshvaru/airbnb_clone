@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './card.css'
 import axios from 'axios'
 import apiData from './api'
+import Ratings from '../ratings/Rating.jsx'
 
 const Card = () => {
   const [data, setData] = useState(apiData)
@@ -49,8 +50,14 @@ const Card = () => {
               <img src={data.images[0]} alt='card' />
               <p>{data.name}</p>
               <p>{data.address}</p>
-              <p>${data.price.total}</p>
-              <p>{data.rating}</p>
+              <div className='number'>
+                <p>${data.price.total.toLocaleString()}</p>
+                {data.rating === undefined ? (
+                  <Ratings stars={4} />
+                ) : (
+                  <Ratings stars={data.rating} />
+                )}
+              </div>
             </div>
           )
         })}
