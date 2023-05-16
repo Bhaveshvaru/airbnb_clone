@@ -4,6 +4,7 @@ import axios from 'axios'
 import apiData from './api'
 import Ratings from '../ratings/Rating.jsx'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 const Card = () => {
   const [data, setData] = useState(apiData)
@@ -50,9 +51,14 @@ const Card = () => {
             <div className='card' key={data.id}>
               <AiOutlineHeart className='wish' />
               <AiFillHeart className='fill' />
-              <img src={data.images[0]} alt='card' />
-              <p className='name'>{data.name}</p>
+              <Link to='/card'>
+                <img className='pointer' src={data.images[0]} alt='card' />
+              </Link>
+              <Link to='/card' style={{ textDecoration: 'none' }}>
+                <p className='name'>{data.name}</p>
+              </Link>
               <p className='address'>{data.address}</p>
+
               <div className='number'>
                 <p>${data.price.total.toLocaleString()}</p>
                 {data.rating === undefined ? (

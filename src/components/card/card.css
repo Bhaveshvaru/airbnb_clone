@@ -6,9 +6,8 @@
   margin-top: 3rem;
 }
 .card {
-  cursor: pointer;
   border-radius: 12px;
-  height: 30rem;
+  height: 25rem;
   width: 18rem;
   position: relative;
 }
@@ -44,12 +43,23 @@
 }
 
 .name {
-  font-family: 'Signika', monospace;
-  font-size: 1.5rem;
+  font-family: 'Nunito Sans', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .address {
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 200;
-  font-size: 0.8rem;
+  margin-top: 0;
+  font-family: 'Nunito Sans', monospace;
+  font-size: 1rem;
+  color: grey;
+}
+
+a {
+  color: black;
+}
+
+.pointer {
+  cursor: pointer;
 }
