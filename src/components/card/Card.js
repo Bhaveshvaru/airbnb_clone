@@ -3,6 +3,7 @@ import './card.css'
 import axios from 'axios'
 import apiData from './api'
 import Ratings from '../ratings/Rating.jsx'
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
 const Card = () => {
   const [data, setData] = useState(apiData)
@@ -47,9 +48,11 @@ const Card = () => {
         data.map((data) => {
           return (
             <div className='card' key={data.id}>
+              <AiOutlineHeart className='wish' />
+              <AiFillHeart className='fill' />
               <img src={data.images[0]} alt='card' />
-              <p>{data.name}</p>
-              <p>{data.address}</p>
+              <p className='name'>{data.name}</p>
+              <p className='address'>{data.address}</p>
               <div className='number'>
                 <p>${data.price.total.toLocaleString()}</p>
                 {data.rating === undefined ? (
