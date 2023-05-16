@@ -34,10 +34,13 @@ const icon = () => {
     <div className='icon_list'>
       {arrIcon.map((item) => {
         return (
-          <div key={item}>
-            <img width='45x' height='45px' src={`${item}`} />
-            <hr className='icon_hr' />
-          </div>
+          <>
+            <div className='list' key={item}>
+              <img width='45x' height='45px' src={`${item}`} />
+              <p className='title'>Camping</p>
+            <hr className='icon_hr'/>
+            </div>
+          </>
         )
       })}
     </div>

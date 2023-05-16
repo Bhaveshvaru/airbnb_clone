@@ -4,7 +4,7 @@ import './details.css'
 import apiData from '../card/api.js'
 
 const Details = () => {
-  let images = apiData[0].images
+  let images = apiData[7].images
   return (
     <>
       {apiData &&
