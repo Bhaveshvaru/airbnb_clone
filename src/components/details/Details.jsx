@@ -1,10 +1,13 @@
 import React from 'react'
 import './details.css'
+import { useParams } from 'react-router-dom'
 
 import apiData from '../card/api.js'
 
 const Details = () => {
-  let images = apiData[7].images
+  let { id } = useParams()
+  console.log(id)
+  let images = apiData[0].images
   return (
     <>
       {apiData &&

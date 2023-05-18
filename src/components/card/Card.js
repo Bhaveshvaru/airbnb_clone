@@ -5,6 +5,7 @@ import apiData from './api'
 import Ratings from '../ratings/Rating.jsx'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import Carousel from '../carosel/Carousel'
 
 const Card = () => {
   const [data, setData] = useState(apiData)
@@ -14,7 +15,7 @@ const Card = () => {
         method: 'GET',
         url: 'https://airbnb13.p.rapidapi.com/search-location',
         params: {
-          location: 'Indenesia',
+          location: 'Ubud',
           checkin: '2023-09-16',
           checkout: '2023-09-17',
           adults: '1',
@@ -30,13 +31,6 @@ const Card = () => {
       try {
         const response = await axios.request(options)
         console.log(response.data) // results
-        // result.name
-        // result.city
-        // result.images
-        // .price .total
-        // .address
-        // .rating
-        // .type
       } catch (error) {
         console.error(error)
       }
@@ -46,14 +40,15 @@ const Card = () => {
   return (
     <div className='cards'>
       {data &&
-        data.map((data) => {
+        data.map((data, index) => {
           return (
             <div className='card' key={data.id}>
               <AiOutlineHeart className='wish' />
               <AiFillHeart className='fill' />
-              <Link to='/card'>
-                <img className='pointer' src={data.images[0]} alt='card' />
-              </Link>
+              {/* <Link to={`/card${index}`}>
+            </Link> */}
+              <Carousel images={data.images} />
+
               <Link to='/card' style={{ textDecoration: 'none' }}>
                 <p className='name'>{data.name}</p>
               </Link>

@@ -1,0 +1,16 @@
+@import '~react-image-gallery/styles/css/image-gallery.css';
+.image-gallery-svg {
+  height: 2rem !important;
+  width: 2rem !important;
+}
+
+.image-gallery-image {
+  height: 16rem !important;
+  width: 18rem !important;
+}
+
+.image-gallery-slide .image-gallery-image {
+  height: 16rem !important;
+  width: 18rem !important;
+  object-fit: cover;
+}

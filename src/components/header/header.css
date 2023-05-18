@@ -1,17 +1,24 @@
 .logo:hover {
   cursor: pointer;
 }
-
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 9992;
+  background: white;
+}
 .heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
 }
 
 .hr {
   border: none;
   height: 0.8px;
   color: grey;
+  z-index: 9992;
   background-color: grey;
 }
 

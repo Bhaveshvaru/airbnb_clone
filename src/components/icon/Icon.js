@@ -29,18 +29,26 @@ arrIcon.push(
   camping
 )
 
+// let iconObj=[
+// {title:'Design'}
+// {title:'Beach'}
+// {title:'Castle'}
+// {title:'Amazing View'}
+// {title:''}
+// ]
+
 const icon = () => {
   return (
     <div className='icon_list'>
-      {arrIcon.map((item) => {
+      {arrIcon.map((item, index) => {
         return (
-          <>
+          <div key={index}>
             <div className='list' key={item}>
-              <img width='45x' height='45px' src={`${item}`} />
+              <img width='25px' height='25px' src={`${item}`} />
               <p className='title'>Camping</p>
-            <hr className='icon_hr'/>
+              <hr className='icon_hr' />
             </div>
-          </>
+          </div>
         )
       })}
     </div>

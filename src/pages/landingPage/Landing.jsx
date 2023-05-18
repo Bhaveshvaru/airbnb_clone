@@ -9,7 +9,8 @@ const Landing = () => {
   const history = useLocation()
   const [showCard, setShowCard] = useState(false)
   useEffect(() => {
-    if (history.pathname === '/card') {
+    console.log(history.pathname.slice(0, 5))
+    if (history.pathname.slice(0, 5) === '/card') {
       setShowCard(true)
     } else {
       setShowCard(false)
