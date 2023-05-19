@@ -45,9 +45,9 @@ const Card = () => {
             <div className='card' key={data.id}>
               <AiOutlineHeart className='wish' />
               <AiFillHeart className='fill' />
-              {/* <Link to={`/card${index}`}>
-            </Link> */}
-              <Carousel images={data.images} />
+              <Link to={`/card${index}`}>
+                <Carousel images={data.images} />
+              </Link>
 
               <Link to='/card' style={{ textDecoration: 'none' }}>
                 <p className='name'>{data.name}</p>

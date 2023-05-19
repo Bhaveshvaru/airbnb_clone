@@ -18,7 +18,6 @@ const Carousel = ({ images }) => {
           showPlayButton={false}
           showFullscreenButton={false}
           loading='lazy'
-          
           items={arr}
         />
       ) : null}

@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-around;
   flex-wrap: nowrap;
+  cursor: pointer;
 }
 
 .icon_list img:hover {
@@ -30,4 +31,9 @@
   font-size: 0.8rem;
   color: grey;
   margin-bottom: 0;
+}
+
+.title:hover {
+  font-weight: 500;
+  color: black;
 }
