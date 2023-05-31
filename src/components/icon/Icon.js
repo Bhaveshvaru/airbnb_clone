@@ -28,7 +28,7 @@ let iconObj = [
 
 const icon = () => {
   return (
-    <div className='icon_list'>
+    <div className='icon_list' style={{ zindex: 99999999 }}>
       {iconObj.map((item) => {
         return (
           <div key={item.icon}>

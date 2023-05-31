@@ -1,25 +1,33 @@
-import React, { useEffect, useState } from 'react'
 import './carosel.css'
 import ImageGallery from 'react-image-gallery'
 
-const Carousel = ({ images }) => {
+import { useNavigate } from 'react-router-dom'
+
+const Carousel = ({ images, index }) => {
+  const navigate = useNavigate()
   let arr = []
   images.map((item) => {
     let obj = { original: item }
     arr.push(obj)
   })
+  const handleClick = () => {
+    navigate(`card/${index}`)
+  }
 
   return (
     <>
       {arr.length > 0 ? (
-        <ImageGallery
-          originalHeight='16rem'
-          originalWidth='18rems'
-          showPlayButton={false}
-          showFullscreenButton={false}
-          loading='lazy'
-          items={arr}
-        />
+        <div style={{ cursor: 'pointer' }}>
+          <ImageGallery
+            onClick={handleClick}
+            originalHeight='16rem'
+            originalWidth='18rems'
+            showPlayButton={false}
+            showFullscreenButton={false}
+            loading='lazy'
+            items={arr}
+          />
+        </div>
       ) : null}
     </>
   )

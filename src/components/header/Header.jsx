@@ -3,6 +3,7 @@ import logo from '../../assets/Airbnb-logo_full.jpeg'
 import ham from '../../assets/ham.svg'
 
 import './header.css'
+import Icon from '../icon/Icon'
 
 const Header = () => {
   return (
@@ -19,7 +20,8 @@ const Header = () => {
 
         <img className='ham' src={ham} alt='globe' height='30px' width='30px' />
       </div>
-      <hr className='hr'  />
+      <hr className='hr' />
+      <Icon />
     </div>
   )
 }
