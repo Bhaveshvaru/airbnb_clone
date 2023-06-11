@@ -37,12 +37,6 @@ const Card = () => {
     }
   }, [])
 
-  const clickHandler = (e) => {
-    console.log(e)
-
-    window.alert('clikced')
-  }
-
   return (
     <div className='cards'>
       {data &&
@@ -51,11 +45,7 @@ const Card = () => {
             <div className='card' key={data.id}>
               <AiOutlineHeart className='wish' />
               <AiFillHeart className='fill' />
-              {/* <Link to={`/card/${index}`}> */}
-            
-                <Carousel index={index} images={data.images} />
-          
-
+              <Carousel index={index} images={data.images} />
               <Link to={`/card/${index}`} style={{ textDecoration: 'none' }}>
                 <p className='name'>{data.name}</p>
               </Link>
