@@ -3,8 +3,7 @@
   justify-content: space-between;
   height: 5vh;
   background-color: white;
-  z-index: 999999;
-  border-top: 1px solid grey
+  border-top: 1.5px solid #d3d3d3;
 }
 
 ul {
@@ -15,18 +14,9 @@ ul {
   list-style-type: none;
 }
 
-.icon_hr {
-  border: none;
-  height: 0.8px;
-  width: 100%;
-  color: grey;
-  background-color: grey;
-  z-index: 99999999999;
-  margin-top: -20px;
-}
-
 .main_footer {
   left: 0;
   bottom: 0;
   position: sticky;
+  z-index: 5000;
 }
