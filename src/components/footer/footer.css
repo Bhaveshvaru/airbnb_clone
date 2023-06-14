@@ -5,8 +5,7 @@
   background-color: white;
   border-top: 1.5px solid #d3d3d3;
 }
-
-ul {
+.ul {
   display: flex;
   gap: 1rem;
   justify-content: space-between;
@@ -19,4 +18,28 @@ ul {
   bottom: 0;
   position: sticky;
   z-index: 5000;
+}
+
+.mob_footer ul {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.mob_footer li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.mobile_footer {
+  display: flex;
+  justify-content: space-between;
+  height: 5vh;
+  background-color: white;
+  border-top: 1.5px solid #d3d3d3;
 }

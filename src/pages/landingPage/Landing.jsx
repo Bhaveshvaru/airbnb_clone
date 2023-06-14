@@ -10,14 +10,14 @@ const Landing = () => {
   return (
     <div>
       <Header />
-      <Icon />
+
       <BrowserRouter>
         <Routes>
           <Route
             path='/'
             element={
               <div>
-                {' '}
+                <Icon />
                 <Card />
               </div>
             }
