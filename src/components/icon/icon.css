@@ -4,8 +4,12 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-
+  overflow: scroll;
   cursor: pointer;
+  width: 95%;
+}
+.icon_list::-webkit-scrollbar {
+  display: none;
 }
 
 .icon_list img:hover {

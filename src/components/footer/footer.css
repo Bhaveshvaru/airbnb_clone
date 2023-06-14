@@ -39,7 +39,7 @@
 .mobile_footer {
   display: flex;
   justify-content: space-between;
-  height: 5vh;
+  height: 4vh;
   background-color: white;
   border-top: 1.5px solid #d3d3d3;
 }

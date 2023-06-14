@@ -2782,7 +2782,7 @@ const apiData = [
     deeplink:
       'https://www.airbnb.com/rooms/23888781?check_in=2023-09-16&check_out=2023-09-17&adults=1&children=0&infants=0&pets=0',
     position: 40,
-    name: '90%Off✰Seminyak✰CarPark✰Netflix/YouTubeAvailable✰',
+    name: 'Seminyak✰CarPark',
     bathrooms: 3.5,
     bedrooms: 3,
     beds: 3,

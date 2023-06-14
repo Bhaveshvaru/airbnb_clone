@@ -16,7 +16,7 @@ let iconObj = [
   { title: 'Design', icon: design },
   { title: 'Beach', icon: beach },
   { title: 'Castle', icon: castle },
-  { title: 'Amazing View', icon: window },
+  { title: 'Amazing ', icon: window },
   { title: 'Luxe', icon: city },
   { title: 'Pool', icon: views },
   { title: 'Cabins', icon: single_home },
