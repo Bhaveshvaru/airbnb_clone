@@ -25,7 +25,6 @@ const Landing = () => {
           <Route path='/card/:id' element={<CardDetails />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
     </div>
   )
 }

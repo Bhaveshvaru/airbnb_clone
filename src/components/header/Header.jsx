@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../assets/Airbnb-logo_full.jpeg'
 import ham from '../../assets/ham.svg'
+import Search from '../search/Search'
 
 import './header.css'
 
@@ -15,7 +16,7 @@ const Header = () => {
           height='50px'
           width='100px'
         />
-        <h3 style={{ color: 'black' }}>Filter</h3>
+        <Search />
 
         <img className='ham' src={ham} alt='globe' height='30px' width='30px' />
       </div>

@@ -9,6 +9,7 @@ import Carousel from '../carosel/Carousel'
 
 const Card = () => {
   const [data, setData] = useState(apiData)
+  const [active, setActive] = useState(false)
   useEffect(() => {
     const getData = async () => {
       const options = {
@@ -43,6 +44,11 @@ const Card = () => {
         data.map((data, index) => {
           return (
             <div className='card' key={data.id}>
+              {/* <div className='stage' onClick={() => setActive(true)}>
+                <div
+                  className={`heart ${data.isWishlist ? 'is-active' : ''}`}
+                ></div>
+              </div> */}
               <AiOutlineHeart className='wish' />
               <AiFillHeart className='fill' />
               <Carousel index={index} images={data.images} />
