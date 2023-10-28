@@ -3,11 +3,15 @@ import './details.css'
 import { useParams } from 'react-router-dom'
 import apiData from '../card/api.js'
 import Box from '@mui/material/Box'
+
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
-import { Button } from '@mui/material'
+import { Button, Container, Typography } from '@mui/material'
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator'
 import Modal from '@mui/material/Modal'
+import ClearIcon from '@mui/icons-material/Clear'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import IosShareIcon from '@mui/icons-material/IosShare'
 
 const CardDetails = () => {
   const [open, setOpen] = useState(false)
@@ -16,7 +20,7 @@ const CardDetails = () => {
 
   let { id } = useParams()
   let images = apiData[id].images.map((url) => ({ img: url }))
-  console.log(images)
+  console.log(apiData[id])
   let pageShowImage = apiData[id].images.filter(
     (item, index) => index > 0 && index <= 4
   )
@@ -39,7 +43,84 @@ const CardDetails = () => {
   }
 
   return (
-    <>
+    <Box sx={{ marginTop: 5, marginLeft: 10 }}>
+      <Container>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            width: '85%',
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 1,
+            }}
+          >
+            <Typography
+              variant='h1'
+              sx={{
+                fontFamily: 'Nunito Sans',
+                fontSize: '1.5rem',
+                fontWweight: 500,
+                marginBottom: 1,
+              }}
+            >
+              {apiData[id].name}
+            </Typography>
+            <Typography variant='p' sx={{ textDecoration: 'underline' }}>
+              {apiData[id].address}
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              alignItems: 'flex-end',
+            }}
+          >
+            <Button
+              startIcon={<IosShareIcon />}
+              sx={{
+                textDecoration: 'underline',
+                borderColor: 'black',
+                textTransform: 'none',
+                color: 'black',
+                '&:hover': {
+                  borderColor: 'black',
+                  backgroundColor: 'white',
+                  opacity: '0.8',
+                  textDecoration: 'underline',
+                },
+              }}
+            >
+              share
+            </Button>
+
+            <Button
+              startIcon={<FavoriteBorderIcon />}
+              sx={{
+                borderColor: 'black',
+                textTransform: 'none',
+                color: 'black',
+                textDecoration: 'underline',
+
+                '&:hover': {
+                  borderColor: 'black',
+                  backgroundColor: 'white',
+                  opacity: '0.8',
+                  textDecoration: 'underline',
+                },
+              }}
+            >
+              save
+            </Button>
+          </Box>
+        </Box>
+      </Container>
       <Box
         sx={{
           display: 'flex',
@@ -54,13 +135,14 @@ const CardDetails = () => {
             className='rounded-left'
             src={firstImage}
             alt='pages'
-            style={{ height: '400px' }}
+            style={{ height: '396px' }}
           />
         </Box>
         <ImageList sx={{ width: 500, height: 400 }} cols={2} gap={5}>
           {newArray.map((item, index) => (
             <ImageListItem key={item.img}>
               <img
+                style={{ height: '100px', objectFit: 'cover' }}
                 srcSet={`${item.img}`}
                 src={`${item.img}`}
                 alt={item.title}
@@ -72,11 +154,11 @@ const CardDetails = () => {
         </ImageList>
         <Button
           sx={{
-            position: 'fixed',
+            position: 'relative',
             backgroundColor: 'white',
             textTransform: 'lowercase',
-            right: 150,
-            top: 430,
+            right: 200,
+            top: 160,
             borderColor: 'black',
             color: 'black',
             '&:hover': {
@@ -101,26 +183,34 @@ const CardDetails = () => {
       >
         <Box sx={style}>
           <ImageList
-            sx={{ width: '70%', height: 750 }}
+            sx={{ width: '70%', height: '80%' }}
             variant='woven'
             cols={2}
-            gap={1}
+            gap={5}
           >
             {images.map((item) => (
               <ImageListItem key={item.img}>
                 <img
-                  srcSet={`${item.img}`}
-                  src={`${item.img}`}
+                  srcSet={`${item.img}&w=348&fit=crop&auto=format&dpr=2 2x`}
+                  src={`${item.img}&fit=crop&auto=format`}
                   alt={item.title}
                   loading='lazy'
-                  style={{ width: '20rem', height: '20rem' }}
                 />
               </ImageListItem>
             ))}
           </ImageList>
+          <ClearIcon
+            onClick={handleClose}
+            sx={{
+              cursor: 'pointer',
+              position: 'relative',
+              right: 900,
+              bottom: 300,
+            }}
+          />
         </Box>
       </Modal>
-    </>
+    </Box>
   )
 }
 
