@@ -10,9 +10,11 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
 import Divider from '@mui/material/Divider'
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google'
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState(false)
+
   return (
     <div className='sticky'>
       <div className='heading'>
@@ -25,7 +27,7 @@ const Header = () => {
         />
         <Search />
 
-        <div className='flex' onClick={() => setShowLogin(!showLogin)} >
+        <div className='flex' onClick={() => setShowLogin(!showLogin)}>
           <img
             className='ham'
             src={ham}
@@ -63,6 +65,16 @@ const Header = () => {
               </ListItem>
             </List>
           </nav>
+          <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID}>
+            <GoogleLogin
+              onSuccess={(credentialResponse) => {
+                console.log(credentialResponse)
+              }}
+              onError={() => {
+                console.log('Login Failed')
+              }}
+            />
+          </GoogleOAuthProvider>
         </Box>
       ) : null}
     </div>
