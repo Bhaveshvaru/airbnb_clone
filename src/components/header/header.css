@@ -25,3 +25,21 @@
 .ham:hover {
   cursor: pointer;
 }
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  z-index: 100000;
+}
+
