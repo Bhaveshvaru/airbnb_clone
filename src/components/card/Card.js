@@ -6,10 +6,22 @@ import Ratings from '../ratings/Rating.jsx'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import Carousel from '../carosel/Carousel'
+import Pagination from '@mui/material/Pagination'
+import Stack from '@mui/material/Stack'
 
 const Card = () => {
   const [data, setData] = useState(apiData)
-  const [active, setActive] = useState(false)
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 20
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem)
+
+  const handleChangePage = (event, newPage) => {
+    setCurrentPage(newPage)
+  }
+
   useEffect(() => {
     const getData = async () => {
       const options = {
@@ -32,42 +44,52 @@ const Card = () => {
       try {
         const response = await axios.request(options)
         console.log(response.data) // results
+        setData(response.data) // Adjust this based on your API structure
       } catch (error) {
         console.error(error)
       }
     }
-  }, [])
+  }, [currentPage, itemsPerPage])
 
   return (
     <div className='cards'>
-      {data &&
-        data.map((data, index) => {
+      {currentItems &&
+        currentItems.map((currentItems, index) => {
           return (
-            <div className='card' key={data.id}>
+            <div className='card' key={currentItems.id}>
               {/* <div className='stage' onClick={() => setActive(true)}>
                 <div
-                  className={`heart ${data.isWishlist ? 'is-active' : ''}`}
+                  className={`heart ${currentItems.isWishlist ? 'is-active' : ''}`}
                 ></div>
               </div> */}
               <AiOutlineHeart className='wish' />
               <AiFillHeart className='fill' />
-              <Carousel index={index} images={data.images} />
+              <Carousel index={index} images={currentItems.images} />
               <Link to={`/card/${index}`} style={{ textDecoration: 'none' }}>
-                <p className='name'>{data.name}</p>
+                <p className='name'>{currentItems.name}</p>
               </Link>
-              <p className='address'>{data.address}</p>
+              <p className='address'>{currentItems.address}</p>
 
               <div className='number'>
-                <p>${data.price.total.toLocaleString()}</p>
-                {data.rating === undefined ? (
+                <p>${currentItems.price.total.toLocaleString()}</p>
+                {currentItems.rating === undefined ? (
                   <Ratings stars={4} />
                 ) : (
-                  <Ratings stars={data.rating} />
+                  <Ratings stars={currentItems.rating} />
                 )}
               </div>
             </div>
           )
         })}
+      <div className='flex'>
+        <Stack spacing={2}>
+          <Pagination
+            count={Math.ceil(data.length / itemsPerPage)}
+            page={currentPage}
+            onChange={handleChangePage}
+          />
+        </Stack>
+      </div>
     </div>
   )
 }

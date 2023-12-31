@@ -11,9 +11,26 @@ import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
 import Divider from '@mui/material/Divider'
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google'
+import Modal from '@mui/material/Modal'
+import { Typography } from '@mui/material'
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState(false)
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
+  const style = {
+    position: 'absolute',
+    top: '15%',
+    left: '85%',
+    transform: 'translate(-50%, -50%)',
+    width: 300,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  }
 
   return (
     <div className='sticky'>
@@ -49,34 +66,49 @@ const Header = () => {
             <List>
               <ListItem disablePadding>
                 <ListItemButton>
-                  <ListItemText primary='Log In' />
+                  <ListItemText primary='Log In' onClick={handleOpen} />
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton component='a' href='#simple-list'>
-                  <ListItemText primary='Sign Up' />
+                <ListItemButton component='a'>
+                  <ListItemText primary='Sign Up' onClick={handleOpen} />
                 </ListItemButton>
               </ListItem>
               <Divider />
               <ListItem disablePadding>
-                <ListItemButton component='a' href='#simple-list'>
+                <ListItemButton component='a'>
                   <ListItemText primary='Help Center' />
                 </ListItemButton>
               </ListItem>
             </List>
           </nav>
-          <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID}>
-            <GoogleLogin
-              onSuccess={(credentialResponse) => {
-                console.log(credentialResponse)
-              }}
-              onError={() => {
-                console.log('Login Failed')
-              }}
-            />
-          </GoogleOAuthProvider>
         </Box>
       ) : null}
+      <div>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby='modal-modal-title'
+          aria-describedby='modal-modal-description'
+        >
+          <Box sx={style}>
+            <Box className='flex'>
+              <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID}>
+                <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    console.log(credentialResponse)
+                    handleClose()
+                  }}
+                  onError={() => {
+                    window.alert('Login Failed')
+                    handleClose()
+                  }}
+                />
+              </GoogleOAuthProvider>
+            </Box>
+          </Box>
+        </Modal>
+      </div>
     </div>
   )
 }
