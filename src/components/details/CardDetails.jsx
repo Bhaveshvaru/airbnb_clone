@@ -3,7 +3,6 @@ import './details.css'
 import { useParams } from 'react-router-dom'
 import apiData from '../card/api.js'
 import Box from '@mui/material/Box'
-
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import { Button, Container, Typography } from '@mui/material'
@@ -12,6 +11,7 @@ import Modal from '@mui/material/Modal'
 import ClearIcon from '@mui/icons-material/Clear'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import IosShareIcon from '@mui/icons-material/IosShare'
+import Listing from '../listing/Listing'
 
 const CardDetails = () => {
   const [open, setOpen] = useState(false)
@@ -215,7 +215,7 @@ const CardDetails = () => {
             marginLeft: '60px',
           }}
         >
-          <Box>name</Box>
+          <Listing />
           <Box sx={{ marginRight: 10 }}>payment</Box>
         </Box>
       </Container>

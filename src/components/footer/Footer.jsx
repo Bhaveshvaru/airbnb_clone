@@ -1,9 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import './footer.css'
-
 import CopyrightIcon from '@mui/icons-material/Copyright'
 import LanguageIcon from '@mui/icons-material/Language'
-
 import SearchIcon from '@mui/icons-material/Search'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import CardTravelIcon from '@mui/icons-material/CardTravel'
@@ -49,10 +47,8 @@ const Footer = () => {
               <CopyrightIcon />
               <li>Airbnb.</li>
               <li>Privacy</li>
-
               <li>Terms</li>
             </ul>
-
             <ul className='ul'>
               <LanguageIcon />
               <li>English</li>

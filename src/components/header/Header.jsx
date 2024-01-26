@@ -44,7 +44,11 @@ const Header = () => {
         />
         <Search />
 
-        <div className='flex' onClick={() => setShowLogin(!showLogin)}>
+        <div
+          className='flex'
+          style={{ justifyContent: 'end' }}
+          onClick={() => setShowLogin(!showLogin)}
+        >
           <img
             className='ham'
             src={ham}
@@ -59,7 +63,11 @@ const Header = () => {
       {showLogin ? (
         <Box
           className='absolute'
-          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+          sx={{
+            width: '100%',
+            maxWidth: 360,
+            bgcolor: 'background.paper',
+          }}
         >
           <Divider />
           <nav aria-label='secondary mailbox folders'>
