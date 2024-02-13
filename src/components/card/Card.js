@@ -40,7 +40,6 @@ const Card = () => {
         },
         headers: {},
       }
-
       try {
         const response = await axios.request(options)
         console.log(response.data) // results
@@ -49,6 +48,7 @@ const Card = () => {
         console.error(error)
       }
     }
+    getData()
   }, [currentPage, itemsPerPage])
 
   return (
