@@ -5,15 +5,19 @@ import apiData from '../card/api.js'
 import Box from '@mui/material/Box'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
-import { Button, Container, Typography } from '@mui/material'
+import { Button, Container, Divider, Typography } from '@mui/material'
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator'
 import Modal from '@mui/material/Modal'
 import ClearIcon from '@mui/icons-material/Clear'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import IosShareIcon from '@mui/icons-material/IosShare'
 import Listing from '../listing/Listing'
+import DateRangePicker from '@wojtekmaj/react-daterange-picker'
+import '@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css'
+import 'react-calendar/dist/Calendar.css'
 
 const CardDetails = () => {
+  const [value, onChange] = useState(new Date())
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -210,13 +214,67 @@ const CardDetails = () => {
           sx={{
             display: 'flex',
             flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: '90%',
-            marginLeft: '60px',
+            justifyContent: 'flex-start',
+            width: '100%',
           }}
         >
           <Listing />
-          <Box sx={{ marginRight: 10 }}>payment</Box>
+          <Box
+            className='payment_card'
+            sx={{
+              marginLeft: 10,
+              backgroundColor: '#ffffff',
+              width: '50vh',
+              height: '47vh',
+              marginRight: 10,
+            }}
+          >
+            <h1>
+              $365 <span>Night</span>
+            </h1>
+            <div style={{ marginBottom: '10px', marginLeft: '10px' }}>
+              <DateRangePicker onChange={onChange} value={value} />
+            </div>
+            <button className='btn-reserve'>Reserve</button>
+
+            <p>you won't be charged yet </p>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <p style={{ textDecoration: 'underline' }}>$361 x 3 nights</p>
+              <p>$1,083</p>
+            </div>
+
+            <div
+              style={{
+                marginTop: -15,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <p style={{ textDecoration: 'underline' }}>Airbnb service fee</p>
+              <p>$153</p>
+            </div>
+            <Divider
+              orientation='horizontal'
+              sx={{ width: '100%', backgroundColor: 'rgba(0, 0, 0, 0.52)' }}
+            />
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <p style={{ fontWeight: '700' }}>Total before taxes</p>
+              <p style={{ fontWeight: '700' }}>$1,236</p>
+            </div>
+          </Box>
         </Box>
       </Container>
     </>
