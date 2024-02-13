@@ -8,7 +8,7 @@ const Carousel = ({ images, index }) => {
   let arr = []
   images.map((item) => {
     let obj = { original: item }
-    arr.push(obj)
+    return arr.push(obj)
   })
   const handleClick = () => {
     navigate(`card/${index}`)
