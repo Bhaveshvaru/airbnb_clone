@@ -33,7 +33,7 @@ const icon = () => {
         return (
           <div key={item.icon}>
             <div className='list' key={item}>
-              <img width='25px' height='25px' src={`${item.icon}`} />
+              <img width='25px' height='25px' src={`${item.icon}`} alt='icon' />
               <p className='title'>{item.title}</p>
               <hr className='icon_hr' />
             </div>

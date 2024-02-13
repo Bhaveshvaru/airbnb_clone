@@ -12,7 +12,6 @@ import ListItemText from '@mui/material/ListItemText'
 import Divider from '@mui/material/Divider'
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google'
 import Modal from '@mui/material/Modal'
-import { Typography } from '@mui/material'
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState(false)
