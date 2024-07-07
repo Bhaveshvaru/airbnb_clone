@@ -41,7 +41,9 @@ const Header = () => {
           height='50px'
           width='100px'
         />
-        <Search />
+        <>
+          <Search />
+        </>
 
         <div
           className='flex'

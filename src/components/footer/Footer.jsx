@@ -44,8 +44,7 @@ const Footer = () => {
         <footer className='main_footer'>
           <div className='footer'>
             <ul className='ul'>
-              <CopyrightIcon />
-              <li>Airbnb.</li>
+              <li>Airbnb-Clone.</li>
               <li>Privacy</li>
               <li>Terms</li>
             </ul>
