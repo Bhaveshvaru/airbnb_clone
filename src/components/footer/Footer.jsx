@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import './footer.css'
-import CopyrightIcon from '@mui/icons-material/Copyright'
 import LanguageIcon from '@mui/icons-material/Language'
 import SearchIcon from '@mui/icons-material/Search'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
